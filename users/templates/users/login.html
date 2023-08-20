@@ -1,0 +1,27 @@
+{% extends 'tasks/home.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class='form-field'>
+    <form method="POST">
+    {% csrf_token %}
+    <fieldset class='fieldset'>
+        <legend>LOG IN</legend>
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Username:</label><br>
+            {{ form.username }}
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}"> Password:</label><br>
+            {{ form.password }}
+        </div>
+        <a href="{% url 'password_reset' %}" class="password-reset">Forget Password</a><br>
+        {% if form.errors %}
+            <div class='message'>Please enter valid username and password</div>
+        {% endif %}
+        <button type="submit" class='submit'>Log In</button>
+    </fieldset>
+    
+    <form>
+</div>
+{% endblock content %}

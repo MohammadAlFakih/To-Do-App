@@ -1,0 +1,23 @@
+{% extends 'tasks/home.html' %}
+{% block content %}
+<div class='form-field'>
+    <fieldset class='fieldset'>
+        <form method="POST">
+            {% csrf_token %}
+
+            <legend>Confirm Deletion</legend>
+            <div class='flex-row'>
+                <button type="submit" class='submit'>Delete</button>
+                <button id='cancel-delete' class='submit' type='button'>
+                    Cancel
+                </button>
+            </div>
+            <form>
+                <script>
+                    document.getElementById("cancel-delete").addEventListener("click", function () {
+                        window.location.href = '{% url "task_detail" user.username task.id %}';
+                    });
+                </script>
+    </fieldset>
+</div>
+{% endblock content %}

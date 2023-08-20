@@ -1,0 +1,71 @@
+{% extends 'tasks/home.html' %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+        {% if message.extra_tags == 'completed' %}
+            <div class="message-success">{{message}}</div>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+    
+    <div class='table-position'>
+        <div class="uncompleted-tasks">Uncompleted Tasks : {{uncompleted_tasks}}</div>
+    <table border=4 class='tasks-list'>
+        <tr>
+            <th>Task</th>
+            <th>Status ⏳</th>
+            <th>Priority 🎯</th>
+            <th>Due_date 📅</th>
+        </tr>
+    {% for task in tasks %}
+        <tr>
+        <td><a href="{% url 'task_detail' task.user.username task.id %}">{{task.title}}</a></td>
+        {% if task.status %}
+        <td>
+            <div style="background-color: green; width:fit-content; border-radius:10%" >
+            Completed
+            </div>
+        </td>
+        {% else %}
+        <td>
+            <div style="background-color: red; width:fit-content; border-radius:10%" >
+                Uncompleted
+            </div>
+        </td>
+        {% endif %}
+        </td>
+        <td>{{task.priority}}</td>
+        <td>{{task.due_date}}</td>
+        </tr>
+    {% endfor %}
+    <tr class='add-task'>
+        <td colspan=4>
+            <a href="{% url 'task_create' user.username %}" class='add-task'> ➕ ADD </a>
+        <td>
+    </tr>
+    </table>
+    <div class="paginate">
+    {% if is_paginated %}
+    {% if page_obj.has_previous %}
+    <a href ='?page={{page_obj.previous_page_number}}' class='back'>🢀 Back</a>
+    {% else %}
+    <a href ='#' class='back'>🢀 Back</a>
+    {% endif %}
+    <div class="page-number">Page : {{page_obj.number}}</div>
+    {% if page_obj.has_next %}
+    <a href ='?page={{page_obj.next_page_number}}' class='next'>Next 🢂</a>
+    {% else %}
+    <a href ='#' class='next'>Next 🢂</a>
+    {% endif %}
+    {% endif %}
+    </div>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    {% if  message.extra_tags == 'warning'%}
+    <div class='message-success logout'>{{message}}</div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+{% endblock content %}

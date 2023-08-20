@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type='text/css' href="{% static 'css/home.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/register.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/tasks.css'%}">
+</head>
+<body>
+    <nav>  
+    {% if user.is_authenticated%}
+        <a href="{% url 'background' %}">HOME</a>
+        <a href="{% url 'user_tasks' user %}">TASKS</a>
+        <a href="{% url 'logout' %}">LOG OUT</a>
+        <a href="{% url 'profile' %}">PROFILE</a>
+    {% else %}
+        <a href="{% url 'background' %}">HOME</a>
+        <a href="{% url 'login' %}">LOG IN</a>
+        <a href="{% url 'register' %}">REGSITER</a>
+    {%endif%}
+    </nav>
+    {% block logout %}
+    {% endblock logout %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.extra_tags == "success" %}
+            <div class="message-success">{{message}}</div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+    ali assi
+    {% endblock content %}
+</body>
+</html>

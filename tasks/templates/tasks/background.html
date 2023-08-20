@@ -1,0 +1,9 @@
+{% extends 'tasks/home.html' %}
+{% block content %}
+{% if user.is_authenticated%}
+<div class="info">Welcome <br>{{user.username}}<br>Add, Update and Delete your Tasks <div>
+{% else %}
+<div class="info">Log in now <br>to schedule your <br>Tasks <br>with CodeMinds AI <div>
+{%endif%}
+{% endblock content %}
+

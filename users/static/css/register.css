@@ -1,0 +1,94 @@
+
+.form-field{
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 3%;
+}
+
+.fieldset{
+    border: none;
+    border-radius: 3%;
+    padding: 4vh;
+    background: linear-gradient(to bottom, rgb(85, 85, 203), #82ed82);
+    width: fit-content;
+}
+
+legend{
+
+    font-weight: bold;
+    font-size: 4vh;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-input{
+    margin: 1vh;
+    background-color: rgb(110, 110, 188);
+}
+
+.message{
+    font-size: 2vh;
+    color: red;
+}
+
+.submit{
+    cursor: pointer;
+    position: relative;
+    margin-top: 2vh;
+    border-radius: 20%;
+    background-color: green;
+    font-size: 3vh;
+}
+
+.form-group{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.user_info{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.profile_image{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.user_name{
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.password-reset{
+    text-decoration: none;
+    font-size: 2vh;
+}
+
+.flex-row{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+

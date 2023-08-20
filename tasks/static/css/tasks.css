@@ -1,0 +1,100 @@
+.table-position{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.uncompleted-tasks{
+    font-size: 3vh;
+    margin-bottom: 2vh;
+    font-weight: bolder;
+}
+.tasks-list{
+    text-align: center;
+    font-size: 3vh;
+    border: 0.1vh solid lightgreen;
+    border-spacing: 0vh;
+}
+
+td,th{
+    padding: 1vh;
+    border: none;
+    border-bottom: 0.1vh solid lightgreen;
+}
+
+tr{
+    border-bottom: 0.1vh solid lightgreen;
+}
+
+td a{
+    text-decoration: none;
+}
+
+label{
+    margin: 1vh;
+}
+
+.unresizable{
+    resize: none;
+    height: 10vh;
+}
+
+.add-task{
+    position: relative;
+    width: 100%;
+    opacity:50% ;
+    background-color: aquamarine;
+}
+
+.paginate{
+    margin-top: 2vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.page-number{
+    width: 15vh;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: bolder;
+    border:0.5vh solid crimson;
+    border-radius: 20%;
+}
+
+.back{
+    box-shadow: 2px 2px 2px rgb(253, 98, 98);
+    background: rgb(253, 98, 98);
+}
+
+.next{
+    box-shadow: 2px 2px 2px rgb(73, 255, 73);
+    background: rgb(73, 255, 73);
+}
+
+.back,.next{
+    text-decoration: none;
+
+}
+@media(max-width:1000px){
+    .table-position{
+        position: relative;
+        width: 100%;
+    }
+    .tasks-list{
+        margin-left: 0px;
+    }
+    body{
+        background-image: none;
+    }
+    .form-field{
+        width: 100%;
+    }
+    td{
+        font-size: 3vh;
+    }
+}
