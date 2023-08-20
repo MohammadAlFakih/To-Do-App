@@ -19,16 +19,16 @@ class UserTaskList(LoginRequiredMixin,ListView):
     context_object_name = 'tasks'
     paginate_by = 2
     def get_queryset(self):
-        user_name = self.request.user.username
-        logged_user = get_object_or_404(User,username=self.kwargs.get('username'))
-        if user_name != logged_user.username:
+        logged_user = self.request.user
+        if self.request.user.username != self.kwargs.get('username'):
             messages.success(self.request,"You cannot access these informations",extra_tags='warning')
-            return
+            return []
         return Task.objects.filter(user=logged_user).order_by('due_date')
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['uncompleted_tasks'] = Task.objects.filter(user=self.request.user,status=0).count()
-        return context
+        if self.request.user.username == self.kwargs.get('username'):
+            context = super().get_context_data(**kwargs)
+            context['uncompleted_tasks'] = Task.objects.filter(user=self.request.user,status=0).count()
+            return context
         
     
 class UserTaskUpdate(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
